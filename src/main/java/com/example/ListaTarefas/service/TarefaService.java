@@ -31,6 +31,10 @@ public class TarefaService {
         return tarefaRepo.save(tarefa);
     }
 
+    public List<Tarefa> updateTarefa(List<Tarefa> tarefas){
+        return  tarefaRepo.saveAll(tarefas);
+    }
+
     public void deleteTarefa(int Id){
         tarefaRepo.deleteTarefaById(Id);
     }

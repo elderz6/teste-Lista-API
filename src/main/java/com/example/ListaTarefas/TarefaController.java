@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -39,6 +40,12 @@ public class TarefaController {
     @PutMapping("/update")
     public ResponseEntity<Tarefa> updateTarefa(@RequestBody Tarefa tarefa){
         Tarefa tarefas = tarefaService.updateTarefa(tarefa);
+        return  new ResponseEntity<>(tarefas, HttpStatus.OK);
+    }
+
+    @PutMapping("/updateMany")
+    public ResponseEntity<List<Tarefa>> updateTarefa(@RequestBody List<Tarefa> tarefa){
+        List<Tarefa> tarefas = tarefaService.updateTarefa(tarefa);
         return  new ResponseEntity<>(tarefas, HttpStatus.OK);
     }
     @Transactional
